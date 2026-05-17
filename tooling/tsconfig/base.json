@@ -11,8 +11,8 @@
     "forceConsistentCasingInFileNames": true,
     "jsx": "react-jsx",
     "paths": {
-      "@repo/shared-data/*": [
-        "../../packages/shared-data/src/*"
+      "@repo/shared/*": [
+        "../../packages/shared/src/*"
       ],
       "@repo/ui/*": [
         "../../packages/ui/src/*"
