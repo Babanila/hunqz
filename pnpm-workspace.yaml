@@ -2,6 +2,10 @@ packages:
   - 'apps/*'
   - 'packages/*'
   - 'tooling/*'
+allowBuilds:
+  esbuild: true
+  sharp: true
+  unrs-resolver: true
 onlyBuiltDependencies:
   - sharp
   - unrs-resolver

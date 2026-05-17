@@ -10,10 +10,9 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "jsx": "react-jsx",
-    "baseUrl": ".",
     "paths": {
-      "@repo/shared/*": [
-        "../../packages/shared/src/*"
+      "@repo/shared-data/*": [
+        "../../packages/shared-data/src/*"
       ],
       "@repo/ui/*": [
         "../../packages/ui/src/*"
