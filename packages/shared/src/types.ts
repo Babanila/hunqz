@@ -52,3 +52,11 @@ export type SaferSex = z.infer<typeof SaferSexSchema>;
 export type KissingStatus = z.infer<typeof KissingStatusSchema>;
 export type OralStatus = z.infer<typeof OralStatusSchema>;
 export type Fetish = z.infer<typeof FetishSchema>;
+
+export type PictureWithUrl<T extends Picture = Picture> = T & { url: string };
+
+export interface UrlServiceConfig {
+  baseUrl: string;
+  apiPath: string;
+  imagePath: string;
+}
