@@ -1,4 +1,4 @@
-import type { Picture, PictureWithUrl, UrlServiceConfig } from '@repo/shared/src/types';
+import type { Picture, PictureWithUrl, UrlServiceConfig } from '../types';
 
 function normalizeBaseUrl(baseUrl: string): string {
   return baseUrl.replace(/\/+$/, '');

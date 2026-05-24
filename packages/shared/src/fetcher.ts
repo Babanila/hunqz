@@ -1,5 +1,3 @@
-import sampleData from '../data/test_data.json';
-
 export type FetchOptions = RequestInit & {
   next?: { revalidate?: number; tags?: string[]; cache?: RequestCache };
 };
@@ -18,7 +16,6 @@ export class FetchError extends Error {
 }
 
 export async function fetcher<T>(url: string, options?: FetchOptions): Promise<T> {
-  /*
   const res = await fetch(url, {
     ...options,
     headers: {
@@ -45,7 +42,4 @@ export async function fetcher<T>(url: string, options?: FetchOptions): Promise<T
   }
 
   return res.json();
-  */
-
-  return sampleData as T;
 }

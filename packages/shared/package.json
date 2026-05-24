@@ -11,9 +11,7 @@
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit"
   },
-  "dependencies": {
-    "axios": "^1.6.8"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@repo/eslint-config": "workspace:*"
   }
