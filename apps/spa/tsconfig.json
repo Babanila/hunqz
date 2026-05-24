@@ -6,6 +6,7 @@
   "include": [
     "**/*.ts",
     "**/*.tsx",
+    "./src/env.ts",
   ],
   "exclude": [
     "node_modules"
