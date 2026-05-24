@@ -1,5 +1,6 @@
-import base from "./index.js";
 import nextPlugin from "@next/eslint-plugin-next";
+
+import base from "./index.js";
 
 /** @type {import("eslint").Linter.FlatConfig[]} */
 export default [
