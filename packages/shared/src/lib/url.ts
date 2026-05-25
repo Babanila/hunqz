@@ -37,9 +37,9 @@ export function createUrlBuilder(config: UrlServiceConfig) {
   }
 
   function getApiUrl(endpoint = ''): string {
-    const normalizedEndpoint = endpoint ? endpoint.replace(/^\/+/, '/') : '';
+    const normalizedEndpoint = endpoint ? endpoint.replace(/^\/+/, '') : '';
 
-    return `${apiBaseUrl}${normalizedEndpoint}`;
+    return `${apiBaseUrl}/${normalizedEndpoint}`;
   }
 
   function withPictureUrls<T extends Picture>(pictures: readonly T[]): PictureWithUrl<T>[] {
