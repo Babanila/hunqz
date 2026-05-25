@@ -1,4 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+
 import { FetchError, fetcher } from './fetcher';
 
 describe('fetcher', () => {

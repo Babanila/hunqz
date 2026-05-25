@@ -1,9 +1,23 @@
 import { describe, expect, it } from 'vitest';
+
+import { Picture, UrlServiceConfig } from '../types';
+
 import { createUrlBuilder } from './url';
+
+const defaultConfig = {
+  baseUrl: 'https://example.com',
+  imagePath: '/img',
+  apiPath: '/api',
+};
+
+const createConfig = (overrides: Partial<UrlServiceConfig>) => ({
+  ...defaultConfig,
+  ...overrides,
+});
 
 describe('createUrlBuilder', () => {
   it('throws when baseUrl is empty or whitespace only', () => {
-    expect(() => createUrlBuilder({ baseUrl: '   ' } as any)).toThrow(
+    expect(() => createUrlBuilder(createConfig({ baseUrl: '   ' }))).toThrow(
       '[PictureUrlBuilder] "baseUrl" must be a non-empty string.',
     );
   });
@@ -13,7 +27,7 @@ describe('createUrlBuilder', () => {
       baseUrl: 'https://cdn.example.com',
       imagePath: 'images/',
       apiPath: '/api/',
-    } as any);
+    } as UrlServiceConfig);
 
     expect(builder.imageBaseUrl).toBe('https://cdn.example.com/images');
     expect(builder.apiBaseUrl).toBe('https://cdn.example.com/api');
@@ -24,7 +38,7 @@ describe('createUrlBuilder', () => {
       baseUrl: 'https://cdn.example.com',
       imagePath: '/images/',
       apiPath: '/api/',
-    } as any);
+    } as UrlServiceConfig);
 
     expect(builder.getPictureUrl('  /folder/photo.JPEG  ')).toBe(
       'https://cdn.example.com/images/folder/photo.jpg',
@@ -40,7 +54,7 @@ describe('createUrlBuilder', () => {
       baseUrl: 'https://cdn.example.com',
       imagePath: '/images/',
       apiPath: '/api/',
-    } as any);
+    } as UrlServiceConfig);
 
     expect(() => builder.getPictureUrl('   ')).toThrow(
       '[getPictureUrl] "urlToken" must be a non-empty string.',
@@ -52,7 +66,7 @@ describe('createUrlBuilder', () => {
       baseUrl: 'https://cdn.example.com',
       imagePath: '/images',
       apiPath: '/api',
-    } as any);
+    } as UrlServiceConfig);
 
     expect(builder.getApiUrl()).toBe('https://cdn.example.com/api/');
     expect(builder.getApiUrl('/v1/pictures')).toBe('https://cdn.example.com/api/v1/pictures');
@@ -64,26 +78,54 @@ describe('createUrlBuilder', () => {
       baseUrl: 'https://cdn.example.com/',
       imagePath: '/images/',
       apiPath: '/api/',
-    } as any);
+    } as UrlServiceConfig);
 
     const pictures = [
-      { id: 1, title: 'One', url_token: '/folder/photo.jpeg' },
-      { id: 2, title: 'Two', url_token: 'another/photo' },
-    ] as any;
+      {
+        id: '1',
+        owner_id: '41469841',
+        url_token: '/folder/photo.jpeg',
+        width: 366,
+        height: 650,
+        rating: 'NEUTRAL',
+        comment: 'Adding a new caption123',
+        is_public: true,
+      },
+      {
+        id: '2',
+        owner_id: '41469841',
+        url_token: 'another/photo',
+        width: 366,
+        height: 650,
+        rating: 'NEUTRAL',
+        comment: 'Adding a new caption123',
+        is_public: true,
+      },
+    ] as Picture[];
 
     const result = builder.withPictureUrls(pictures);
 
     expect(result).toEqual([
       {
-        id: 1,
-        title: 'One',
+        id: '1',
+        owner_id: '41469841',
         url_token: '/folder/photo.jpeg',
+        width: 366,
+        height: 650,
+        rating: 'NEUTRAL',
+        comment: 'Adding a new caption123',
+        is_public: true,
         url: 'https://cdn.example.com/images/folder/photo.jpg',
       },
       {
-        id: 2,
-        title: 'Two',
+        id: '2',
+        owner_id: '41469841',
         url_token: 'another/photo',
+        width: 366,
+        height: 650,
+        rating: 'NEUTRAL',
+        comment: 'Adding a new caption123',
+        is_public: true,
         url: 'https://cdn.example.com/images/another/photo.jpg',
       },
     ]);
