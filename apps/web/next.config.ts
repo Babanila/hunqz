@@ -2,7 +2,20 @@ import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   transpilePackages: ['@repo/shared', '@repo/ui'],
-   images: {
+  async headers() {
+    return [
+      {
+        source: '/api/:path*',
+        headers: [
+          {
+            key: 'Access-Control-Allow-Origin',
+            value: '*',
+          },
+        ],
+      },
+    ];
+  },
+  images: {
     remotePatterns: [
       {
         protocol: 'https',

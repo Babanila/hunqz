@@ -9,6 +9,13 @@ export default defineConfig({
     tailwindcss(),
   ],
   server: {
+    proxy: {
+      '/api': {
+        target: 'https://www.hunqz.com',
+        changeOrigin: true,
+        secure: true,
+      },
+    },
     watch: {
       ignored: ['**/node_modules/**', '**/.turbo/**'],
     },

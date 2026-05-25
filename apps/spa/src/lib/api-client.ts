@@ -7,3 +7,5 @@ export const apiUrlClient = createUrlBuilder({
   apiPath: env.VITE_API_BASE_PATH,
   imagePath: env.VITE_API_IMAGE_PATH,
 });
+
+export const apiPathWithCors = env.VITE_API_BASE_PATH;

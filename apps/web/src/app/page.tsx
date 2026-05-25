@@ -10,7 +10,7 @@ import { notFound } from 'next/navigation';
 
 import { NextImage } from '../components/next-image';
 import { apiUrlClient } from '../lib/api-client';
-import { getProfile } from '../lib/get-profiles';
+import { getProfile } from '../lib/get-profile';
 
 export default async function Home() {
   const { data: profile, error } = await getProfile('msescortplus');
