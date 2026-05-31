@@ -26,6 +26,9 @@ turbo
 **/build
 *.tsbuildinfo
 
+
+**.timestamp*
+
 # misc
 .DS_Store
 *.pem

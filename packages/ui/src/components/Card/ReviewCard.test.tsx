@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 
 import { ReviewCard } from './ReviewCard';
 
-vi.mock('../../lib/utils', () => ({
+vi.mock('../../lib/formatters', () => ({
   formatDate: vi.fn((date: string) => `formatted-${date}`),
 }));
 
@@ -44,7 +44,7 @@ describe('ReviewCard', () => {
   it('renders formatted updated date', () => {
     render(<ReviewCard review={baseReview} />);
 
-    expect(screen.getByText('20 May 2026, 12:00')).toBeInTheDocument();
+    expect(screen.getByText('formatted-2026-05-20T10:00:00Z')).toBeInTheDocument();
   });
 
   it('renders positive badge when vote is 1', () => {
@@ -77,7 +77,6 @@ describe('ReviewCard', () => {
     );
 
     expect(screen.queryByText('Positive')).not.toBeInTheDocument();
-
     expect(screen.queryByText('Negative')).not.toBeInTheDocument();
   });
 
@@ -97,10 +96,8 @@ describe('ReviewCard', () => {
     );
 
     expect(screen.getByText('Reply')).toBeInTheDocument();
-
     expect(screen.getByText('Thank you!')).toBeInTheDocument();
-
-    expect(screen.getByText('20 May 2026, 14:00')).toBeInTheDocument();
+    expect(screen.getByText('formatted-2026-05-20T12:00:00Z')).toBeInTheDocument();
   });
 
   it('does not render reply section when reply is missing', () => {
@@ -134,9 +131,7 @@ describe('ReviewCard', () => {
     );
 
     expect(screen.getByText('Alex')).toBeInTheDocument();
-
     expect(screen.getByText('Amazing experience')).toBeInTheDocument();
-
     expect(screen.getByText('Appreciated')).toBeInTheDocument();
   });
 });
