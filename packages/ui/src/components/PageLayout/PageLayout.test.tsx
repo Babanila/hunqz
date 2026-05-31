@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 
-import { PageLayout } from './Layout';
+import { PageLayout } from './PageLayout';
 
 describe('PageLayout', () => {
   it('renders header, content, and footer', () => {
