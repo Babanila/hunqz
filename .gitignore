@@ -21,8 +21,10 @@ turbo
 /out/
 
 # production
-/build
-dist
+# Build outputs
+**/dist
+**/build
+*.tsbuildinfo
 
 # misc
 .DS_Store
