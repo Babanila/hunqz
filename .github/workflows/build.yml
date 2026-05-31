@@ -1,0 +1,55 @@
+name: Build
+
+on:
+  workflow_call:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Enable Corepack and prepare pnpm
+        run: |
+          corepack enable
+          corepack prepare pnpm@latest --activate
+
+      - name: Cache pnpm store
+        uses: actions/cache@v4
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build workspace (Turbo)
+        run: pnpm build
+
+      - name: Upload `apps/spa` build artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: apps-spa-build
+          path: |
+            apps/spa/dist
+            apps/spa/package.json
+
+      - name: Upload `apps/web` build artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: apps-web-build
+          path: |
+            apps/web/.next
+            apps/web/public
+            apps/web/package.json
