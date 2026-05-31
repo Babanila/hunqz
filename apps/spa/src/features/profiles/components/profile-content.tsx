@@ -1,4 +1,4 @@
-import { DisplayMessage, HtmlImage, ProfileCard } from '@repo/ui';
+import { DisplayMessage, HtmlImage, ProfileCard } from '@repo/ui/server';
 
 import { apiUrlClient } from '../../../lib/api-client';
 import { useProfile } from '../hooks/use-profile';

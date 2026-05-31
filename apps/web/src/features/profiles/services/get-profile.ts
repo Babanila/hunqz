@@ -1,5 +1,5 @@
 import { fetcher, FetchError } from '@repo/shared/fetcher';
-import { ProfileData } from '@repo/ui/index';
+import { ProfileData } from '@repo/ui/server';
 
 import { apiUrlClient } from '../../../lib/api-client';
 

@@ -1,6 +1,6 @@
 'use client';
 
-import { Input } from '@repo/ui';
+import { Input } from '@repo/ui/client';
 import { SearchIcon } from 'lucide-react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useState, useTransition } from 'react';

@@ -1,4 +1,5 @@
-import { DisplayMessage, ErrorDisplay } from '@repo/ui';
+import { ErrorDisplay } from '@repo/ui/client';
+import { DisplayMessage } from '@repo/ui/server';
 
 import { getCachedProfile } from '../cache/profile-cache';
 

@@ -1,4 +1,4 @@
-import { Input } from '@repo/ui';
+import { Input } from '@repo/ui/client';
 import { SearchIcon } from 'lucide-react';
 
 type ProfileSearchProps = {

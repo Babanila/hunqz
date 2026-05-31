@@ -1,4 +1,4 @@
-import { Footer, Header, PageLayout } from '@repo/ui';
+import { Footer, Header, PageLayout } from '@repo/ui/server';
 import type { Metadata } from 'next';
 
 import { NextLink } from '../components/NextLink.tsx';

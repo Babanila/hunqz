@@ -1,4 +1,4 @@
-import { ProfileCard, type ProfileData } from '@repo/ui';
+import { ProfileCard, type ProfileData } from '@repo/ui/server';
 
 import { NextImage } from '../../../components/next-image';
 import { apiUrlClient } from '../../../lib/api-client';

@@ -1,4 +1,4 @@
-import { DisplayMessage } from '@repo/ui';
+import { DisplayMessage } from '@repo/ui/server';
 import { ErrorBoundary, type FallbackProps } from 'react-error-boundary';
 
 function ErrorFallback({ resetErrorBoundary }: FallbackProps) {

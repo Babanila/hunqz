@@ -1,4 +1,4 @@
-import type { SharedImageProps } from '@repo/ui';
+import type { SharedImageProps } from '@repo/ui/client';
 import Image from 'next/image';
 
 export function NextImage({

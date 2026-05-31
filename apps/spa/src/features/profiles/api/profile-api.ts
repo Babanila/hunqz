@@ -1,5 +1,5 @@
 import { fetcher } from '@repo/shared';
-import type { ProfileData } from '@repo/ui';
+import type { ProfileData } from '@repo/ui/client';
 
 import { apiPathWithCors } from '../../../lib/api-client';
 
