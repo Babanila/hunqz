@@ -1,4 +1,4 @@
-import { ComponentType } from "react";
+import type { ComponentType } from "react";
 
 export type LoadingType = 'lazy' | 'eager';
 
@@ -128,3 +128,11 @@ export type ProfileData = {
   pictures: Picture[];
   reviews: Review[];
 };
+
+export type LinkComponentProps = {
+  href: string;
+  children: React.ReactNode;
+  className?: string;
+};
+
+export type SharedLinkComponent =ComponentType<LinkComponentProps>;
