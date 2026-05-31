@@ -55,9 +55,9 @@ export function ProfileSearch({ defaultValue }: ProfileSearchProps) {
   return (
     <div className="mb-8">
       <Input
-        label="Search"
+        label="Search Profile"
+        placeholder="Enter username"
         value={value}
-        placeholder="Search profile..."
         rightIcon={<SearchIcon size={18} />}
         onChange={(e) => setValue(e.target.value)}
       />

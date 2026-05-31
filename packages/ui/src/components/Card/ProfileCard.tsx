@@ -41,7 +41,7 @@ export function ProfileCard({
   return (
     <div className="group rounded-2xl border-gray-200 bg-white p-4 shadow-sm transition hover:shadow-md dark:border-gray-800 dark:bg-gray-900">
       <div className="flex gap-4">
-        <div className="min-w-0 flex-1">
+        <div className="min-w-0 flex-1 space-y-4 py-1">
           <Section title="Picture">
             <div className="relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-xl bg-gray-100 dark:bg-gray-800">
               {profile.preview_pic.url_token ? (
