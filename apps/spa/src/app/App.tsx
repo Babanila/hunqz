@@ -1,6 +1,7 @@
 import { Footer, Header, PageLayout } from '@repo/ui';
 
 import { ReactRouterLink } from '../components/ReactRouterLink';
+import { AppErrorBoundary } from '../shared/error-boundary';
 
 import { AppRoutes } from './routes';
 
@@ -25,7 +26,9 @@ export default function App() {
       }
       footer={<Footer companyName="Hunqz" />}
     >
-      <AppRoutes />
+      <AppErrorBoundary>
+        <AppRoutes />
+      </AppErrorBoundary>
     </PageLayout>
   );
 }
