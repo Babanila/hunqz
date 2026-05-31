@@ -7,31 +7,27 @@ describe('Section', () => {
     render(
       <Section title="Profile Information">
         <div>Content</div>
-      </Section>
+      </Section>,
     );
 
-    expect(
-      screen.getByText('Profile Information')
-    ).toBeInTheDocument();
+    expect(screen.getByText('Profile Information')).toBeInTheDocument();
   });
 
   it('renders children correctly', () => {
     render(
       <Section title="About">
         <p>This is the about section</p>
-      </Section>
+      </Section>,
     );
 
-    expect(
-      screen.getByText('This is the about section')
-    ).toBeInTheDocument();
+    expect(screen.getByText('This is the about section')).toBeInTheDocument();
   });
 
   it('renders the heading as h2', () => {
     render(
       <Section title="Reviews">
         <div>Review Content</div>
-      </Section>
+      </Section>,
     );
 
     const heading = screen.getByRole('heading', {
@@ -46,7 +42,7 @@ describe('Section', () => {
     const { container } = render(
       <Section title="Services">
         <div>Services Content</div>
-      </Section>
+      </Section>,
     );
 
     const section = container.querySelector('section');
@@ -57,7 +53,7 @@ describe('Section', () => {
       'shadow-sm',
       'border',
       'border-gray-100',
-      'p-6'
+      'p-6',
     );
   });
 
@@ -65,16 +61,12 @@ describe('Section', () => {
     render(
       <Section title="Gallery">
         <div>Gallery Content</div>
-      </Section>
+      </Section>,
     );
 
     const title = screen.getByText('Gallery');
 
-    expect(title).toHaveClass(
-      'text-xl',
-      'font-bold',
-      'mb-4'
-    );
+    expect(title).toHaveClass('text-xl', 'font-bold', 'mb-4');
   });
 
   it('renders multiple children correctly', () => {
@@ -82,15 +74,11 @@ describe('Section', () => {
       <Section title="Details">
         <p>Child One</p>
         <p>Child Two</p>
-      </Section>
+      </Section>,
     );
 
-    expect(
-      screen.getByText('Child One')
-    ).toBeInTheDocument();
+    expect(screen.getByText('Child One')).toBeInTheDocument();
 
-    expect(
-      screen.getByText('Child Two')
-    ).toBeInTheDocument();
+    expect(screen.getByText('Child Two')).toBeInTheDocument();
   });
 });

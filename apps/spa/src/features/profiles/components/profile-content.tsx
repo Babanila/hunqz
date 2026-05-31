@@ -12,7 +12,7 @@ type Props = {
 export function ProfileContent({ username }: Props) {
   const { data, isLoading, error } = useProfile(username);
 
-   if (!username.trim()) {
+  if (!username.trim()) {
     return null;
   }
 
@@ -21,7 +21,7 @@ export function ProfileContent({ username }: Props) {
   }
 
   if (error) {
-     return error.message.includes('404') ? (
+    return error.message.includes('404') ? (
       <DisplayMessage variant="info" title="Profile not found" />
     ) : (
       <DisplayMessage

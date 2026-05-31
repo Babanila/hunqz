@@ -6,61 +6,34 @@ describe('Footer', () => {
   const currentYear = new Date().getFullYear();
 
   it('renders the company name', () => {
-    render(
-      <Footer companyName="Hunqz" />
-    );
+    render(<Footer companyName="Hunqz" />);
 
-    expect(
-      screen.getByText(/Hunqz/)
-    ).toBeInTheDocument();
+    expect(screen.getByText(/Hunqz/)).toBeInTheDocument();
   });
 
   it('renders the current year', () => {
-    render(
-      <Footer companyName="Hunqz" />
-    );
+    render(<Footer companyName="Hunqz" />);
 
-    expect(
-      screen.getByText(
-        `© ${currentYear} Hunqz`
-      )
-    ).toBeInTheDocument();
+    expect(screen.getByText(`© ${currentYear} Hunqz`)).toBeInTheDocument();
   });
 
   it('renders the complete copyright text', () => {
-    render(
-      <Footer companyName="IronLabs" />
-    );
+    render(<Footer companyName="IronLabs" />);
 
-    expect(
-      screen.getByText(
-        `© ${currentYear} IronLabs`
-      )
-    ).toBeInTheDocument();
+    expect(screen.getByText(`© ${currentYear} IronLabs`)).toBeInTheDocument();
   });
 
   it('renders a footer element', () => {
-    const { container } = render(
-      <Footer companyName="Hunqz" />
-    );
+    const { container } = render(<Footer companyName="Hunqz" />);
 
-    expect(
-      container.querySelector('footer')
-    ).toBeInTheDocument();
+    expect(container.querySelector('footer')).toBeInTheDocument();
   });
 
   it('applies expected footer classes', () => {
-    const { container } = render(
-      <Footer companyName="Hunqz" />
-    );
+    const { container } = render(<Footer companyName="Hunqz" />);
 
-    const footer =
-      container.querySelector('footer');
+    const footer = container.querySelector('footer');
 
-    expect(footer).toHaveClass(
-      'border-t',
-       'bg-black',
-       'text-[#00bdff]'
-    );
+    expect(footer).toHaveClass('border-t', 'bg-black', 'text-[#00bdff]');
   });
 });

@@ -1,12 +1,12 @@
 import { Footer, Header, PageLayout } from '@repo/ui';
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 
-import { NextLink } from "../components/NextLink.tsx";
-import "./globals.css";
+import { NextLink } from '../components/NextLink.tsx';
+import './globals.css';
 
 export const metadata: Metadata = {
-  title: "Hunqz Next App",
-  description: "Hunqz App for Profiles",
+  title: 'Hunqz Next App',
+  description: 'Hunqz App for Profiles',
 };
 
 export default function RootLayout({

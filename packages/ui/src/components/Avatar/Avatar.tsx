@@ -42,10 +42,7 @@ export function Avatar({
       height={dimension}
       loading={priority ? 'eager' : loadingType}
       priority={priority}
-      className={cn(
-        'rounded-full object-cover',
-        className,
-      )}
+      className={cn('rounded-full object-cover', className)}
     />
   );
 }

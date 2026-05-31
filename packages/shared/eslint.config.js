@@ -1,6 +1,4 @@
-import base from "@repo/eslint-config";
+import base from '@repo/eslint-config';
 
 /** @type {import("eslint").Linter.FlatConfig[]} */
-export default [
-  ...base,
-];
+export default [...base];

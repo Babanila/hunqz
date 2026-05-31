@@ -3,12 +3,6 @@
   "compilerOptions": {
     "plugins": []
   },
-  "include": [
-    "**/*.ts",
-    "**/*.tsx",
-    "./src/env.ts",
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["**/*.ts", "**/*.tsx", "./src/env.ts"],
+  "exclude": ["node_modules"]
 }

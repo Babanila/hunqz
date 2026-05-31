@@ -237,7 +237,7 @@ export function PersonalInfo({ personal }: PersonalInfoProps) {
       {personal.profile_text && (
         <div className="space-y-2">
           <h3 className="text-lg font-semibold">About</h3>
-          <p className="leading-7 text-gray-700 wrap-break-word">{personal.profile_text}</p>
+          <p className="leading-7 wrap-break-word text-gray-700">{personal.profile_text}</p>
         </div>
       )}
 

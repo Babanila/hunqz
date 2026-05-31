@@ -1,4 +1,4 @@
-import type { ComponentType } from "react";
+import type { ComponentType } from 'react';
 
 export type LoadingType = 'lazy' | 'eager';
 
@@ -135,4 +135,4 @@ export type LinkComponentProps = {
   className?: string;
 };
 
-export type SharedLinkComponent =ComponentType<LinkComponentProps>;
+export type SharedLinkComponent = ComponentType<LinkComponentProps>;

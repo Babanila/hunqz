@@ -16,9 +16,7 @@ vi.mock('./ProfileCard', () => ({
   },
 }));
 
-const ImageComponent: ComponentType<SharedImageProps> = (_props) => (
-  <img alt="mock-image" />
-);
+const ImageComponent: ComponentType<SharedImageProps> = (_props) => <img alt="mock-image" />;
 
 const profiles = [
   { id: '1', name: 'Ada Lovelace' } as ProfileData,
@@ -31,9 +29,7 @@ describe('ProfileGrid', () => {
   });
 
   it('renders the grid container', () => {
-    const { container } = render(
-      <ProfileGrid profiles={[]} ImageComponent={ImageComponent} />,
-    );
+    const { container } = render(<ProfileGrid profiles={[]} ImageComponent={ImageComponent} />);
 
     const grid = container.querySelector('.grid');
     expect(grid).not.toBeNull();
@@ -65,13 +61,7 @@ describe('ProfileGrid', () => {
   });
 
   it('forwards a custom loadingType to each ProfileCard', () => {
-    render(
-      <ProfileGrid
-        profiles={profiles}
-        loadingType="eager"
-        ImageComponent={ImageComponent}
-      />,
-    );
+    render(<ProfileGrid profiles={profiles} loadingType="eager" ImageComponent={ImageComponent} />);
 
     expect(ProfileCardMock).toHaveBeenCalledTimes(2);
 

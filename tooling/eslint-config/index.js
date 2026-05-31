@@ -1,21 +1,21 @@
-import js from "@eslint/js";
-import prettier from "eslint-config-prettier";
-import importPlugin from "eslint-plugin-import";
-import react from "eslint-plugin-react";
-import reactHooks from "eslint-plugin-react-hooks";
-import tseslint from "typescript-eslint";
+import js from '@eslint/js';
+import prettier from 'eslint-config-prettier';
+import importPlugin from 'eslint-plugin-import';
+import react from 'eslint-plugin-react';
+import reactHooks from 'eslint-plugin-react-hooks';
+import tseslint from 'typescript-eslint';
 
 /** @type {import("eslint").Linter.FlatConfig[]} */
 export default [
   // Ignore common build/output dirs
   {
     ignores: [
-      "**/dist/**",
-      "**/build/**",
-      "**/.next/**",
-      "**/.turbo/**",
-      "**/coverage/**",
-      "**/node_modules/**",
+      '**/dist/**',
+      '**/build/**',
+      '**/.next/**',
+      '**/.turbo/**',
+      '**/coverage/**',
+      '**/node_modules/**',
     ],
   },
   // JS + TS recommended
@@ -23,10 +23,10 @@ export default [
   ...tseslint.configs.recommended,
   // React + Hooks
   {
-    files: ["**/*.{js,jsx,ts,tsx}"],
+    files: ['**/*.{js,jsx,ts,tsx}'],
     plugins: {
       react,
-      "react-hooks": reactHooks,
+      'react-hooks': reactHooks,
     },
     languageOptions: {
       parserOptions: {
@@ -34,31 +34,31 @@ export default [
       },
     },
     settings: {
-      react: { version: "detect" },
+      react: { version: 'detect' },
     },
     rules: {
-      "react/react-in-jsx-scope": "off",
-      "react-hooks/rules-of-hooks": "error",
-      "react-hooks/exhaustive-deps": "warn",
+      'react/react-in-jsx-scope': 'off',
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'warn',
     },
   },
 
   // Import ordering
   {
-    files: ["**/*.{js,jsx,ts,tsx}"],
+    files: ['**/*.{js,jsx,ts,tsx}'],
     plugins: { import: importPlugin },
     settings: {
-      "import/resolver": {
+      'import/resolver': {
         typescript: true,
         node: true,
       },
     },
     rules: {
-      "import/order": [
-        "error",
+      'import/order': [
+        'error',
         {
-          alphabetize: { order: "asc", caseInsensitive: true },
-          "newlines-between": "always",
+          alphabetize: { order: 'asc', caseInsensitive: true },
+          'newlines-between': 'always',
         },
       ],
     },
@@ -66,11 +66,11 @@ export default [
 
   // TS-specific tweaks
   {
-    files: ["**/*.{ts,tsx}"],
+    files: ['**/*.{ts,tsx}'],
     rules: {
-      "@typescript-eslint/no-unused-vars": [
-        "error",
-        { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
       ],
     },
   },

@@ -5,10 +5,7 @@ import { PageLayout } from './Layout';
 describe('PageLayout', () => {
   it('renders header, content, and footer', () => {
     render(
-      <PageLayout
-        header={<header>Header Content</header>}
-        footer={<footer>Footer Content</footer>}
-      >
+      <PageLayout header={<header>Header Content</header>} footer={<footer>Footer Content</footer>}>
         <div>Main Content</div>
       </PageLayout>,
     );
@@ -20,13 +17,8 @@ describe('PageLayout', () => {
 
   it('renders children inside main element', () => {
     render(
-      <PageLayout
-        header={<header>Header</header>}
-        footer={<footer>Footer</footer>}
-      >
-        <div data-testid="page-content">
-          Content
-        </div>
+      <PageLayout header={<header>Header</header>} footer={<footer>Footer</footer>}>
+        <div data-testid="page-content">Content</div>
       </PageLayout>,
     );
 
@@ -38,10 +30,7 @@ describe('PageLayout', () => {
 
   it('renders header before main content', () => {
     const { container } = render(
-      <PageLayout
-        header={<header>Header</header>}
-        footer={<footer>Footer</footer>}
-      >
+      <PageLayout header={<header>Header</header>} footer={<footer>Footer</footer>}>
         <div>Content</div>
       </PageLayout>,
     );
@@ -54,10 +43,7 @@ describe('PageLayout', () => {
 
   it('renders footer after main content', () => {
     const { container } = render(
-      <PageLayout
-        header={<header>Header</header>}
-        footer={<footer>Footer</footer>}
-      >
+      <PageLayout header={<header>Header</header>} footer={<footer>Footer</footer>}>
         <div>Content</div>
       </PageLayout>,
     );
@@ -69,10 +55,7 @@ describe('PageLayout', () => {
 
   it('applies layout classes', () => {
     const { container } = render(
-      <PageLayout
-        header={<header>Header</header>}
-        footer={<footer>Footer</footer>}
-      >
+      <PageLayout header={<header>Header</header>} footer={<footer>Footer</footer>}>
         <div>Content</div>
       </PageLayout>,
     );
@@ -102,7 +85,7 @@ describe('PageLayout', () => {
       </PageLayout>,
     );
 
-    expect(screen.getByRole('heading', {name: 'Site Title'})).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Site Title' })).toBeInTheDocument();
     expect(screen.getByText('Page Body')).toBeInTheDocument();
     expect(screen.getByText('Copyright')).toBeInTheDocument();
   });

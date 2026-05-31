@@ -48,7 +48,6 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
   }
 }
 
-
 export function ErrorDisplay({
   error,
 }: {

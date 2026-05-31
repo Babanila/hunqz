@@ -3,63 +3,32 @@ import { render, screen } from '@testing-library/react';
 import { Avatar } from './Avatar';
 
 describe('Avatar', () => {
-  const mockGetImageUrlPath = vi.fn(
-    (token: string) =>
-      `https://example.com/${token}.jpg`,
-  );
+  const mockGetImageUrlPath = vi.fn((token: string) => `https://example.com/${token}.jpg`);
 
   beforeEach(() => {
     vi.clearAllMocks();
   });
 
   it('renders avatar image correctly', () => {
-    render(
-      <Avatar
-        srcToken="avatar-1"
-        alt="John Doe"
-        getImageUrlPath={mockGetImageUrlPath}
-      />,
-    );
+    render(<Avatar srcToken="avatar-1" alt="John Doe" getImageUrlPath={mockGetImageUrlPath} />);
 
-    const image = screen.getByAltText(
-      'John Doe',
-    ) as HTMLImageElement;
+    const image = screen.getByAltText('John Doe') as HTMLImageElement;
 
     expect(image).toBeInTheDocument();
 
-    expect(image).toHaveAttribute(
-      'src',
-      'https://example.com/avatar-1.jpg',
-    );
+    expect(image).toHaveAttribute('src', 'https://example.com/avatar-1.jpg');
 
-    expect(image).toHaveAttribute(
-      'alt',
-      'John Doe',
-    );
+    expect(image).toHaveAttribute('alt', 'John Doe');
   });
 
   it('uses default medium size', () => {
-    render(
-      <Avatar
-        srcToken="avatar-1"
-        alt="John Doe"
-        getImageUrlPath={mockGetImageUrlPath}
-      />,
-    );
+    render(<Avatar srcToken="avatar-1" alt="John Doe" getImageUrlPath={mockGetImageUrlPath} />);
 
-    const image = screen.getByAltText(
-      'John Doe',
-    );
+    const image = screen.getByAltText('John Doe');
 
-    expect(image).toHaveAttribute(
-      'width',
-      '64',
-    );
+    expect(image).toHaveAttribute('width', '64');
 
-    expect(image).toHaveAttribute(
-      'height',
-      '64',
-    );
+    expect(image).toHaveAttribute('height', '64');
   });
 
   it('renders small avatar size correctly', () => {
@@ -72,19 +41,11 @@ describe('Avatar', () => {
       />,
     );
 
-    const image = screen.getByAltText(
-      'Small Avatar',
-    );
+    const image = screen.getByAltText('Small Avatar');
 
-    expect(image).toHaveAttribute(
-      'width',
-      '40',
-    );
+    expect(image).toHaveAttribute('width', '40');
 
-    expect(image).toHaveAttribute(
-      'height',
-      '40',
-    );
+    expect(image).toHaveAttribute('height', '40');
   });
 
   it('renders large avatar size correctly', () => {
@@ -97,38 +58,19 @@ describe('Avatar', () => {
       />,
     );
 
-    const image = screen.getByAltText(
-      'Large Avatar',
-    );
+    const image = screen.getByAltText('Large Avatar');
 
-    expect(image).toHaveAttribute(
-      'width',
-      '96',
-    );
+    expect(image).toHaveAttribute('width', '96');
 
-    expect(image).toHaveAttribute(
-      'height',
-      '96',
-    );
+    expect(image).toHaveAttribute('height', '96');
   });
 
   it('uses lazy loading by default', () => {
-    render(
-      <Avatar
-        srcToken="avatar-1"
-        alt="Lazy Avatar"
-        getImageUrlPath={mockGetImageUrlPath}
-      />,
-    );
+    render(<Avatar srcToken="avatar-1" alt="Lazy Avatar" getImageUrlPath={mockGetImageUrlPath} />);
 
-    const image = screen.getByAltText(
-      'Lazy Avatar',
-    );
+    const image = screen.getByAltText('Lazy Avatar');
 
-    expect(image).toHaveAttribute(
-      'loading',
-      'lazy',
-    );
+    expect(image).toHaveAttribute('loading', 'lazy');
   });
 
   it('uses eager loading when priority is true', () => {
@@ -141,14 +83,9 @@ describe('Avatar', () => {
       />,
     );
 
-    const image = screen.getByAltText(
-      'Priority Avatar',
-    );
+    const image = screen.getByAltText('Priority Avatar');
 
-    expect(image).toHaveAttribute(
-      'loading',
-      'eager',
-    );
+    expect(image).toHaveAttribute('loading', 'eager');
   });
 
   it('applies custom className', () => {
@@ -161,55 +98,27 @@ describe('Avatar', () => {
       />,
     );
 
-    const image = screen.getByAltText(
-      'Styled Avatar',
-    );
+    const image = screen.getByAltText('Styled Avatar');
 
-    expect(image).toHaveClass(
-      'rounded-full',
-    );
+    expect(image).toHaveClass('rounded-full');
 
-    expect(image).toHaveClass(
-      'object-cover',
-    );
+    expect(image).toHaveClass('object-cover');
 
-    expect(image).toHaveClass(
-      'border-2',
-    );
+    expect(image).toHaveClass('border-2');
 
-    expect(image).toHaveClass(
-      'border-red-500',
-    );
+    expect(image).toHaveClass('border-red-500');
   });
 
   it('calls getImageUrlPath with correct token', () => {
-    render(
-      <Avatar
-        srcToken="avatar-token"
-        alt="Avatar"
-        getImageUrlPath={mockGetImageUrlPath}
-      />,
-    );
+    render(<Avatar srcToken="avatar-token" alt="Avatar" getImageUrlPath={mockGetImageUrlPath} />);
 
-    expect(
-      mockGetImageUrlPath,
-    ).toHaveBeenCalledWith(
-      'avatar-token',
-    );
+    expect(mockGetImageUrlPath).toHaveBeenCalledWith('avatar-token');
 
-    expect(
-      mockGetImageUrlPath,
-    ).toHaveBeenCalledTimes(1);
+    expect(mockGetImageUrlPath).toHaveBeenCalledTimes(1);
   });
 
   it('supports custom ImageComponent', () => {
-    const CustomImage = vi.fn(
-      ({
-        alt,
-      }: {
-        alt: string;
-      }) => <img alt={alt} />,
-    );
+    const CustomImage = vi.fn(({ alt }: { alt: string }) => <img alt={alt} />);
 
     render(
       <Avatar
@@ -220,8 +129,6 @@ describe('Avatar', () => {
       />,
     );
 
-    expect(
-      CustomImage,
-    ).toHaveBeenCalled();
+    expect(CustomImage).toHaveBeenCalled();
   });
 });

@@ -1,5 +1,5 @@
-import { Loading } from "@repo/ui";
+import { Loading } from '@repo/ui';
 
 export function ProfileCardSkeleton() {
-  return (<Loading />);
+  return <Loading />;
 }

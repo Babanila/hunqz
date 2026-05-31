@@ -15,7 +15,7 @@ export const ProfileGrid = ({
   profiles,
   loadingType = 'lazy',
   ImageComponent,
-  getImageUrlPath
+  getImageUrlPath,
 }: ProfileGridProps) => {
   return (
     <div className="grid">

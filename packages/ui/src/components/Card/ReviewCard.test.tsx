@@ -23,54 +23,34 @@ describe('ReviewCard', () => {
           ...baseReview,
           reviewer_name: 'John Doe',
         }}
-      />
+      />,
     );
 
-    expect(
-      screen.getByText('John Doe')
-    ).toBeInTheDocument();
+    expect(screen.getByText('John Doe')).toBeInTheDocument();
   });
 
   it('renders Anonymous when reviewer_name is missing', () => {
-    render(
-      <ReviewCard review={baseReview} />
-    );
+    render(<ReviewCard review={baseReview} />);
 
-    expect(
-      screen.getByText('Anonymous')
-    ).toBeInTheDocument();
+    expect(screen.getByText('Anonymous')).toBeInTheDocument();
   });
 
   it('renders the review comment', () => {
-    render(
-      <ReviewCard review={baseReview} />
-    );
+    render(<ReviewCard review={baseReview} />);
 
-    expect(
-      screen.getByText('Amazing experience')
-    ).toBeInTheDocument();
+    expect(screen.getByText('Amazing experience')).toBeInTheDocument();
   });
 
   it('renders formatted updated date', () => {
-    render(
-      <ReviewCard review={baseReview} />
-    );
+    render(<ReviewCard review={baseReview} />);
 
-    expect(
-      screen.getByText(
-        '20 May 2026, 12:00'
-      )
-    ).toBeInTheDocument();
+    expect(screen.getByText('20 May 2026, 12:00')).toBeInTheDocument();
   });
 
   it('renders positive badge when vote is 1', () => {
-    render(
-      <ReviewCard review={baseReview} />
-    );
+    render(<ReviewCard review={baseReview} />);
 
-    expect(
-      screen.getByText('Positive')
-    ).toBeInTheDocument();
+    expect(screen.getByText('Positive')).toBeInTheDocument();
   });
 
   it('renders negative badge when vote is -1', () => {
@@ -80,12 +60,10 @@ describe('ReviewCard', () => {
           ...baseReview,
           vote: -1,
         }}
-      />
+      />,
     );
 
-    expect(
-      screen.getByText('Negative')
-    ).toBeInTheDocument();
+    expect(screen.getByText('Negative')).toBeInTheDocument();
   });
 
   it('does not render vote badge when vote is undefined', () => {
@@ -95,16 +73,12 @@ describe('ReviewCard', () => {
           ...baseReview,
           vote: undefined,
         }}
-      />
+      />,
     );
 
-    expect(
-      screen.queryByText('Positive')
-    ).not.toBeInTheDocument();
+    expect(screen.queryByText('Positive')).not.toBeInTheDocument();
 
-    expect(
-      screen.queryByText('Negative')
-    ).not.toBeInTheDocument();
+    expect(screen.queryByText('Negative')).not.toBeInTheDocument();
   });
 
   it('renders reply section when reply exists', () => {
@@ -119,48 +93,28 @@ describe('ReviewCard', () => {
             updated_at: '2026-05-20T12:00:00Z',
           },
         }}
-      />
+      />,
     );
 
-    expect(
-      screen.getByText('Reply')
-    ).toBeInTheDocument();
+    expect(screen.getByText('Reply')).toBeInTheDocument();
 
-    expect(
-      screen.getByText('Thank you!')
-    ).toBeInTheDocument();
+    expect(screen.getByText('Thank you!')).toBeInTheDocument();
 
-    expect(
-      screen.getByText(
-        '20 May 2026, 14:00'
-      )
-    ).toBeInTheDocument();
+    expect(screen.getByText('20 May 2026, 14:00')).toBeInTheDocument();
   });
 
   it('does not render reply section when reply is missing', () => {
-    render(
-      <ReviewCard review={baseReview} />
-    );
+    render(<ReviewCard review={baseReview} />);
 
-    expect(
-      screen.queryByText('Reply')
-    ).not.toBeInTheDocument();
+    expect(screen.queryByText('Reply')).not.toBeInTheDocument();
   });
 
   it('applies correct container classes', () => {
-    const { container } = render(
-      <ReviewCard review={baseReview} />
-    );
+    const { container } = render(<ReviewCard review={baseReview} />);
 
     const card = container.firstChild;
 
-    expect(card).toHaveClass(
-      'border',
-      'border-gray-100',
-      'rounded-2xl',
-      'p-5',
-      'bg-gray-50'
-    );
+    expect(card).toHaveClass('border', 'border-gray-100', 'rounded-2xl', 'p-5', 'bg-gray-50');
   });
 
   it('renders multiple text elements correctly', () => {
@@ -176,19 +130,13 @@ describe('ReviewCard', () => {
             updated_at: '2026-05-20T14:00:00Z',
           },
         }}
-      />
+      />,
     );
 
-    expect(
-      screen.getByText('Alex')
-    ).toBeInTheDocument();
+    expect(screen.getByText('Alex')).toBeInTheDocument();
 
-    expect(
-      screen.getByText('Amazing experience')
-    ).toBeInTheDocument();
+    expect(screen.getByText('Amazing experience')).toBeInTheDocument();
 
-    expect(
-      screen.getByText('Appreciated')
-    ).toBeInTheDocument();
+    expect(screen.getByText('Appreciated')).toBeInTheDocument();
   });
 });

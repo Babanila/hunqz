@@ -6,18 +6,12 @@ type PageLayoutProps = {
   children: ReactNode;
 };
 
-export function PageLayout({
-  header,
-  footer,
-  children,
-}: PageLayoutProps) {
+export function PageLayout({ header, footer, children }: PageLayoutProps) {
   return (
     <div className="flex min-h-screen flex-col">
       {header}
 
-      <main className="flex-1">
-        {children}
-      </main>
+      <main className="flex-1">{children}</main>
 
       {footer}
     </div>

@@ -1,15 +1,9 @@
 import type { ReactNode } from 'react';
 
-export function Section({
-  title,
-  children,
-}: {
-  title: string;
-  children: ReactNode;
-}) {
+export function Section({ title, children }: { title: string; children: ReactNode }) {
   return (
-    <section className="bg-white rounded-3xl shadow-sm border border-gray-100 p-6">
-      <h2 className="text-xl font-bold mb-4">{title}</h2>
+    <section className="rounded-3xl border border-gray-100 bg-white p-6 shadow-sm">
+      <h2 className="mb-4 text-xl font-bold">{title}</h2>
       {children}
     </section>
   );
