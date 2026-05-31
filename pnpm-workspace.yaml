@@ -3,6 +3,7 @@ packages:
   - 'packages/*'
   - 'tooling/*'
 allowBuilds:
+  es5-ext: true
   esbuild: true
   sharp: true
   unrs-resolver: true

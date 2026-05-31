@@ -37,6 +37,7 @@
     "@tailwindcss/postcss": "^4.3.0",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.1",
     "@types/jest": "^30.0.0",
     "@types/react": "^19.2.14",
     "@typescript-eslint/eslint-plugin": "^8.59.3",
@@ -61,7 +62,12 @@
     "vitest": "^1.6.1"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.100.14",
+    "clsx": "^2.1.1",
     "lucide-react": "^1.16.0",
+    "react-error-boundary": "^6.1.2",
+    "react-router-dom": "^7.16.0",
+    "tailwind-merge": "^3.6.0",
     "tsup": "^8.0.2",
     "zod": "^3.25.76"
   }
