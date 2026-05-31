@@ -1,13 +1,14 @@
 import { fetcher, FetchError } from '@repo/shared/fetcher';
 import { ProfileData } from '@repo/ui/index';
 
-import { apiUrlClient } from './api-client';
+import { apiUrlClient } from '../../../lib/api-client';
 
 export async function getProfile(id: string) {
   try {
     const profile = await fetcher<ProfileData>(apiUrlClient.getApiUrl(id), {
       next: { revalidate: 300, tags: ['hunqz-profiles'] },
     });
+
     return { data: profile, error: null };
   } catch (error) {
     if (error instanceof FetchError) {
