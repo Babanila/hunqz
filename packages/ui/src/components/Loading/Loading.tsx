@@ -1,14 +1,10 @@
 export function Loading() {
   return (
-    <div className="flex flex-1 flex-col items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-        <div className="w-full space-y-4">
-          {[1, 2, 3].map((i) => (
-            <div key={i} className="animate-pulse rounded-lg bg-gray-200 p-4 dark:bg-gray-700">
-              <div className="h-4 w-3/4 rounded bg-gray-300 dark:bg-gray-600"></div>
-              <div className="mt-2 h-4 w-1/2 rounded bg-gray-300 dark:bg-gray-600"></div>
-            </div>
-          ))}
-        </div>
+    <div className="animate-pulse space-y-6">
+      <div className="h-32 rounded-xl bg-gray-200" />
+      <div className="h-4 w-1/2 rounded bg-gray-200" />
+      <div className="h-4 w-full rounded bg-gray-200" />
+      <div className="h-4 w-2/3 rounded bg-gray-200" />
     </div>
   );
 }
