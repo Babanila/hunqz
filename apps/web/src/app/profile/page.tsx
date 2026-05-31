@@ -14,7 +14,7 @@ type PageProps = {
 };
 
 export async function generateMetadata({ searchParams }: PageProps) {
-  const { q = '' } = await searchParams;
+  const { q = 'msescortplus' } = await searchParams;
 
   const { data } = await getCachedProfile(q);
 
@@ -35,7 +35,7 @@ export async function generateMetadata({ searchParams }: PageProps) {
 }
 
 export default async function ProfilePage({ searchParams }: PageProps) {
-  const { q = '' } = await searchParams;
+  const { q = 'msescortplus' } = await searchParams;
 
   return (
     <section className="mx-auto max-w-6xl p-6">

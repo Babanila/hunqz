@@ -1,3 +1,5 @@
+'use client';
+
 import { forwardRef, useId, type InputHTMLAttributes, type ReactNode } from 'react';
 
 import { cn } from '../../lib/cn';
@@ -60,7 +62,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
               error ? `${inputId}-error` : helperText ? `${inputId}-helper` : undefined
             }
             className={cn(
-              'w-full rounded-lg border bg-white px-3 py-3 text-md',
+              'text-md w-full rounded-lg border bg-white px-3 py-3',
               'transition-colors outline-none',
               'placeholder:text-gray-400',
               'focus:ring-2 focus:ring-blue-500',

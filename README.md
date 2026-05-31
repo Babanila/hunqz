@@ -29,13 +29,12 @@ repo/
 ├── .prettierrc.cjs
 │
 ├── commitlint.config.cjs
-├── eslint.config.cjs 
+├── eslint.config.cjs
 ├── package.json
 ├── pnpm-lock.yaml
 ├── pnpm-workspace.yaml
 ├── README.md
 └── turbo.json
-
 
 ## Prerequisites
 
@@ -155,7 +154,6 @@ pnpm lint:fix
 - `pnpm test` : run tests across workspace (Turbo)
 - `pnpm lint` : lint across workspace (Turbo)
 
-
 ## Using the App
 
 - Start the dev server for the app you want to test:
@@ -169,14 +167,13 @@ pnpm --filter ./apps/web dev
 ```
 
 - Open the app in your browser:
-	- SPA: http://localhost:5173
-	- Web: http://localhost:3000
+  - SPA: http://localhost:5173
+  - Web: http://localhost:3000
 
 - Test the profiles flow:
-	- From the homepage click the "Explore Profiles" button to load the profiles list.
-	- Or click the "Profile" link in the page header to open the profile page.
-	- Expected result: the profiles list or the selected profile page loads and displays profile details.
-
+  - From the homepage click the "Explore Profiles" button to load the profiles list.
+  - Or click the "Profile" link in the page header to open the profile page.
+  - Expected result: the profiles list or the selected profile page loads and displays profile details.
 
 ## Notes
 

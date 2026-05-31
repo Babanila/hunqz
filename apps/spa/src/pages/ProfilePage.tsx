@@ -8,7 +8,7 @@ export function ProfilePage() {
   const debouncedSearch = useDebounce(search, 500);
 
   return (
-    <div className="flex h-auto flex-col items-center justify-center p-6 space-y-6">
+    <div className="flex h-auto flex-col items-center justify-center space-y-6 p-6">
       <ProfileSearch value={search} onChange={setSearch} />
       <ProfileContent username={debouncedSearch} />
     </div>

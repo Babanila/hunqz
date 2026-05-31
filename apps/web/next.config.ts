@@ -1,7 +1,7 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  transpilePackages: ['@repo/shared', '@repo/ui'],
+  transpilePackages: ['@repo/eslint-config', '@repo/shared', '@repo/ui'],
   async headers() {
     return [
       {
