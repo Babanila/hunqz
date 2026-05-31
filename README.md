@@ -154,6 +154,19 @@ pnpm lint:fix
 - `pnpm test` : run tests across workspace (Turbo)
 - `pnpm lint` : lint across workspace (Turbo)
 
+
+## Setup .env variables in both apps
+
+```bash
+cp apps/spa/.env.example apps/spa/.env
+cp apps/web/.env.example apps/web/.env
+```
+
+# Edit .env with your values
+apps/spa/.env
+apps/web/.env
+
+
 ## Using the App
 
 - Start the dev server for the app you want to test:

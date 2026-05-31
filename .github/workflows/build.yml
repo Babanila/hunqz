@@ -33,6 +33,13 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build workspace (Turbo)
+        env:
+          NEXT_PUBLIC_BASE_DOMAIN: ${{ vars.NEXT_PUBLIC_BASE_DOMAIN }}
+          NEXT_PUBLIC_API_BASE_PATH: ${{ vars.NEXT_PUBLIC_API_BASE_PATH }}
+          NEXT_PUBLIC_API_IMAGE_PATH: ${{ vars.NEXT_PUBLIC_API_IMAGE_PATH }}
+          VITE_BASE_DOMAIN: ${{ vars.VITE_BASE_DOMAIN }}
+          VITE_API_BASE_PATH: ${{ vars.VITE_API_BASE_PATH }}
+          VITE_API_IMAGE_PATH: ${{ vars.VITE_API_IMAGE_PATH }}
         run: pnpm build
 
       - name: Upload `apps/spa` build artifact
