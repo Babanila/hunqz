@@ -1,5 +1,5 @@
-import { Loading as LoadingSpinner } from '@repo/ui';
+import { ProfileSkeleton } from '../../features/profiles/components/profile-skeleton';
 
 export default function Loading() {
-  return <LoadingSpinner />;
+  return <ProfileSkeleton />;
 }
